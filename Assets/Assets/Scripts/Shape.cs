@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class Shape : MonoBehaviour
 {
-    public string size;
+    public Mark mark;
+    public int size;
 }
