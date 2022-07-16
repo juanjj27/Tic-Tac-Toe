@@ -31,6 +31,8 @@ public class MarkContainer : MonoBehaviour
             if (hit)//Mark from selection container
             {
                 SelectMark(hit.GetComponent<Shape>());
+                //Llamado al método de la modificación del item.
+                ModifyOnSelection(hit.GetComponent<SpriteRenderer>(), hit.GetComponent<CircleCollider2D>());
             }
         }
     }
@@ -70,6 +72,68 @@ public class MarkContainer : MonoBehaviour
             }
         }
           
+    }
+
+    //Método que modifica los items del tablero cuando se seleccionan. Usar una propiedad similar al borde o algo así
+    private void ModifyOnSelection(SpriteRenderer spriteRenderer_, CircleCollider2D collider)
+    {
+        spriteRenderer_ = currentSelection.GetComponent<SpriteRenderer>();
+        
+        collider = currentSelection.GetComponent<CircleCollider2D>();
+
+        Color32 newColor;
+        Color32 oldColor;
+        newColor = new Color32(0, 255, 0, 255);
+        oldColor = spriteRenderer_.color;
+
+        if (currentSelection.tag == "1")
+        {
+            spriteRenderer_.color = newColor;
+            
+        }else if (collider.enabled == true && currentSelection.tag == "2")
+        {
+            spriteRenderer_.color = newColor;
+        }
+        else if (collider.enabled == true && currentSelection.tag == "3")
+        {
+            spriteRenderer_.color = newColor;
+        }
+        else if (collider.enabled == true && currentSelection.tag == "4")
+        {
+            spriteRenderer_.color = newColor;
+        }
+        else if (collider.enabled == true && currentSelection.tag == "5")
+        {
+            spriteRenderer_.color = newColor;
+        }
+        else if (collider.enabled == true && currentSelection.tag == "6")
+        {
+            spriteRenderer_.color = newColor;
+        }
+        else if (collider.enabled == true && currentSelection.tag == "7")
+        {
+            spriteRenderer_.color = newColor;
+        }
+        else if (collider.enabled == true && currentSelection.tag == "8")
+        {
+            spriteRenderer_.color = newColor;
+        }
+        else if (collider.enabled == true && currentSelection.tag == "9")
+        {
+            spriteRenderer_.color = newColor;
+        }
+        else if (collider.enabled == true && currentSelection.tag == "10")
+        {
+            spriteRenderer_.color = newColor;
+        }
+        else if (collider.enabled == true && currentSelection.tag == "11")
+        {
+            spriteRenderer_.color = newColor;
+        }
+        else if (collider.enabled == true && currentSelection.tag == "12")
+        {
+            spriteRenderer_.color = newColor;
+        }
     }
  }
 

@@ -15,19 +15,11 @@ public class Box : MonoBehaviour
 
     private void Awake()
     {
-        //xSmallPrefab = GetComponent<GameObject>();
-        /*ismarked: true or false
-         * mark.equals("small") {
-         * bool = true;
-         * }
-         * 
-         * 
-         */
         board = FindObjectOfType<Board>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         index = transform.GetSiblingIndex();
         mark = Mark.None;
-        isMarked = false;
+        isMarked = false;   
     }
 
     public void SetAsMarked(GameObject Markprefab, Mark mark, MarkContainer markSelected)
@@ -36,6 +28,7 @@ public class Box : MonoBehaviour
 
         if (Markprefab != null)
         {
+
             if (currentMark == null)
             {
                 mark_ = Instantiate(Markprefab, this.transform);
@@ -67,9 +60,9 @@ public class Box : MonoBehaviour
         }
         else
         {
-            //mostrar en UI que debe seleccionar un tamano
+            //mostrar en UI que debe seleccionar un tamaño
             board.canSwitchPlayer = false;
-            Debug.Log("Seleccione un tamano");
+            Debug.Log("Seleccione un tamaño");
         }
 
        

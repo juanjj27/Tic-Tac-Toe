@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Board : MonoBehaviour
 {
-    [Header("Input Settings : ")]
+    [Header("Input Settings: ")]
     [SerializeField] private LayerMask boxesLayerMask;
     [SerializeField] private float touchRadius;
 
-    [Header("Mark Sprites : ")]
+    [Header("Mark Sprites: ")]
     [SerializeField] public GameObject xBigMark;
     [SerializeField] public GameObject oBigMark;
     [SerializeField] public GameObject xMidMark;
@@ -16,7 +16,7 @@ public class Board : MonoBehaviour
     [SerializeField] public GameObject xSmallMark;
     [SerializeField] public GameObject oSmallMark;
 
-    [Header("Mark Colors : ")]
+    [Header("Mark Colors: ")]
     [SerializeField] private Color colorX;
     [SerializeField] private Color color0;
 
@@ -92,8 +92,7 @@ public class Board : MonoBehaviour
     private GameObject GetMark()
     {
         return (markContainer.currentSelection != null) ? currentMarkSizeToPlace : null;
-
-        
         //return (currentMark == Mark.X) ? xBigMark : oBigMark;
+        //markContainer.currentSelection.GetComponent<SpriteRenderer>().color = new Color32(101, 101, 101, 255)
     }
 }
