@@ -9,8 +9,12 @@ public class Board : MonoBehaviour
     [SerializeField] private float touchRadius;
 
     [Header("Mark Sprites : ")]
-    [SerializeField] private GameObject xBigMark;
-    [SerializeField] private GameObject oBigMark;
+    [SerializeField] public GameObject xBigMark;
+    [SerializeField] public GameObject oBigMark;
+    [SerializeField] public GameObject xMidMark;
+    [SerializeField] public GameObject oMidMark;
+    [SerializeField] public GameObject xSmallMark;
+    [SerializeField] public GameObject oSmallMark;
 
     [Header("Mark Colors : ")]
     [SerializeField] private Color colorX;
@@ -22,10 +26,15 @@ public class Board : MonoBehaviour
 
     private Camera cam;
 
-    private Mark currentMark;
+    public Mark currentMark;
+
+    public GameObject currentMarkSizeToPlace;
+    public MarkContainer markContainer;
+    public bool canSwitchPlayer;
 
     private void Start()
     {
+        markContainer = FindObjectOfType<MarkContainer>();
         cam = Camera.main;
 
         currentMark = Mark.X;
@@ -56,14 +65,23 @@ public class Board : MonoBehaviour
             //Aquí se verificaría no solo sí está marcada sino si el tamaño es mayor, menor o igual a la marca que se desea poner
             marks[box.index] = currentMark;
 
-            box.SetAsMarked(GetMark(), currentMark, GetColor());
-            SwitchPlayer();
+            //box.SetAsMarked(GetMark(), currentMark, GetColor());
+            box.SetAsMarked(GetMark(), currentMark, markContainer);
+
+            //NO PASAR A SWITCH PLAYER SI NO SE PUDO PONER MARCA
+            if (canSwitchPlayer)
+            {
+                SwitchPlayer();
+                canSwitchPlayer = false;
+            }
+            
         }  
     }
 
     private void SwitchPlayer()
     {
         currentMark = (currentMark == Mark.X) ? Mark.O : Mark.X;
+        markContainer.currentSelection = null;
     }
 
     private Color GetColor()
@@ -73,6 +91,9 @@ public class Board : MonoBehaviour
 
     private GameObject GetMark()
     {
-        return (currentMark == Mark.X) ? xBigMark : oBigMark;
+        return (markContainer.currentSelection != null) ? currentMarkSizeToPlace : null;
+
+        
+        //return (currentMark == Mark.X) ? xBigMark : oBigMark;
     }
 }
