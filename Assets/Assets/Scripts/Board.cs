@@ -62,12 +62,22 @@ public class Board : MonoBehaviour
     {
         if (!box.isMarked)
         {
-            //Aquí se verificaría no solo sí está marcada sino si el tamaño es mayor, menor o igual a la marca que se desea poner
-            marks[box.index] = currentMark;
+            if(markContainer.currentSelection != null)
+            {
+                //Aquí se verificaría no solo sí está marcada sino si el tamaño es mayor, menor o igual a la marca que se desea poner
+                marks[box.index] = currentMark;
 
-            //box.SetAsMarked(GetMark(), currentMark, GetColor());
-            box.SetAsMarked(GetMark(), currentMark, markContainer);
+                //box.SetAsMarked(GetMark(), currentMark, GetColor());
+                box.SetAsMarked(GetMark(), currentMark, markContainer);
+            }
+     
 
+            bool won = CheckIfWin();
+            if (won)
+            {
+                Debug.Log(currentMark.ToString() + " Wins.");
+                return;
+            }
             //NO PASAR A SWITCH PLAYER SI NO SE PUDO PONER MARCA
             if (canSwitchPlayer)
             {
@@ -78,10 +88,25 @@ public class Board : MonoBehaviour
         }  
     }
 
+    private bool CheckIfWin()
+    {
+        return
+        AreBoxesMatched(0, 1, 2) || AreBoxesMatched(3, 4, 5) || AreBoxesMatched(6, 7, 8) ||
+        AreBoxesMatched(0, 3, 6) || AreBoxesMatched(1, 4, 7) || AreBoxesMatched(2, 5, 8) ||
+        AreBoxesMatched(0, 4, 8) || AreBoxesMatched(2, 4, 6);
+    }
+
+    private bool AreBoxesMatched(int i, int j, int k)
+    {
+        Mark m = currentMark;
+        bool matched = (marks[i] == m || marks[j] == m || marks[k] == m);
+        return matched;
+    }
+
     private void SwitchPlayer()
     {
         currentMark = (currentMark == Mark.X) ? Mark.O : Mark.X;
-        markContainer.currentSelection = null;
+        markContainer.currentSelection = null; 
     }
 
     private Color GetColor()

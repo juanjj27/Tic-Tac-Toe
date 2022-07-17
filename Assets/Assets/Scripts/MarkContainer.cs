@@ -18,6 +18,7 @@ public class MarkContainer : MonoBehaviour
     {
         cam = Camera.main;
         board = FindObjectOfType<Board>();
+        //currentSelection = FindObjectOfType<GameObject>();
     }
 
     private void Update()
@@ -32,46 +33,83 @@ public class MarkContainer : MonoBehaviour
             {
                 SelectMark(hit.GetComponent<Shape>());
                 //Llamado al método de la modificación del item.
-                ModifyOnSelection(hit.GetComponent<SpriteRenderer>(), hit.GetComponent<CircleCollider2D>());
+                ModOnSelect();
+                //ModifyOnSelection(hit.GetComponent<SpriteRenderer>(), hit.GetComponent<CircleCollider2D>());
             }
         }
     }
 
     private void SelectMark(Shape shape)
     {
+        if(currentSelection != null)
+        {
+            if (currentSelection.tag == "1" && currentSelection.GetComponent<CircleCollider2D>().enabled == true)
+            {
+                currentSelection.GetComponent<SpriteRenderer>().color = new Color32(255, 68, 0, 255);
+            }
+            else if (currentSelection.tag == "2" && currentSelection.GetComponent<CircleCollider2D>().enabled == true)
+            {
+                currentSelection.GetComponent<SpriteRenderer>().color = new Color32(255, 124, 76, 255);
+            }
+            else if (currentSelection.tag == "3" && currentSelection.GetComponent<CircleCollider2D>().enabled == true)
+            {
+                currentSelection.GetComponent<SpriteRenderer>().color = new Color32(255, 180, 153, 255);
+            }
+            else if (currentSelection.tag == "4" && currentSelection.GetComponent<CircleCollider2D>().enabled == true)
+            {
+                currentSelection.GetComponent<SpriteRenderer>().color = new Color32(0, 159, 255, 255);
+            }
+            else if (currentSelection.tag == "5" && currentSelection.GetComponent<CircleCollider2D>().enabled == true)
+            {
+                currentSelection.GetComponent<SpriteRenderer>().color = new Color32(76, 188, 255, 255);
+            }
+            else if (currentSelection.tag == "6" && currentSelection.GetComponent<CircleCollider2D>().enabled == true)
+            {
+                currentSelection.GetComponent<SpriteRenderer>().color = new Color32(153, 217, 255, 255);
+            }
+        }
+        
+
         currentSelection = shape.gameObject;
 
-        if (board.currentMark == Mark.X)
+        if(board.currentMark == shape.mark)
         {
-            if (shape.size == 3)
+            if (board.currentMark == Mark.X)
             {
-                board.currentMarkSizeToPlace = board.xBigMark;
+                if (shape.size == 3)
+                {
+                    board.currentMarkSizeToPlace = board.xBigMark;
+                }
+                else if (shape.size == 2)
+                {
+                    board.currentMarkSizeToPlace = board.xMidMark;
+                }
+                else if (shape.size == 1)
+                {
+                    board.currentMarkSizeToPlace = board.xSmallMark;
+                }
             }
-            else if (shape.size == 2)
+            else
             {
-                board.currentMarkSizeToPlace = board.xMidMark;
-            }
-            else if (shape.size == 1)
-            {
-                board.currentMarkSizeToPlace = board.xSmallMark;
+                if (shape.size == 3)
+                {
+                    board.currentMarkSizeToPlace = board.oBigMark;
+                }
+                else if (shape.size == 2)
+                {
+                    board.currentMarkSizeToPlace = board.oMidMark;
+                }
+                else if (shape.size == 1)
+                {
+                    board.currentMarkSizeToPlace = board.oSmallMark;
+                }
             }
         }
         else
         {
-            if (shape.size == 3)
-            {
-                board.currentMarkSizeToPlace = board.oBigMark;
-            }
-            else if (shape.size == 2)
-            {
-                board.currentMarkSizeToPlace = board.oMidMark;
-            }
-            else if (shape.size == 1)
-            {
-                board.currentMarkSizeToPlace = board.oSmallMark;
-            }
+            Debug.Log("No es tu turno");
+            currentSelection = null;
         }
-          
     }
 
     //Método que modifica los items del tablero cuando se seleccionan. Usar una propiedad similar al borde o algo así
@@ -133,6 +171,18 @@ public class MarkContainer : MonoBehaviour
         else if (collider.enabled == true && currentSelection.tag == "12")
         {
             spriteRenderer_.color = newColor;
+        }
+    }
+
+    private void ModOnSelect()
+    {
+        if(currentSelection != null)
+        {
+            currentSelection.GetComponent<SpriteRenderer>().color = new Color32(0, 255, 0, 255);
+        }
+        else
+        {
+            Debug.Log("No es tu turno");
         }
     }
  }

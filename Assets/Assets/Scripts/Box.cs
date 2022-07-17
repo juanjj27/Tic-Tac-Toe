@@ -74,4 +74,5 @@ public class Box : MonoBehaviour
 
         //gameObject.color = color;
     }
+
 }
