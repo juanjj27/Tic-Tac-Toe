@@ -6,4 +6,5 @@ public class Shape : MonoBehaviour
 {
     public Mark mark;
     public int size;
+    public bool isSelected;
 }

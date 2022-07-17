@@ -407,7 +407,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d055aeb90d74b724d9af7c8a921d62c0, type: 3}
   m_Color: {r: 1, g: 0.26666668, b: 0, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.28, y: 1.28}
@@ -474,8 +474,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a15659366c43b4da313826331483c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mark: 0
+  mark: 1
   size: 3
+  isSelected: 0
 --- !u!58 &239768415
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -630,7 +631,7 @@ GameObject:
   - component: {fileID: 331496633}
   m_Layer: 9
   m_Name: mark_O_Little (1)
-  m_TagString: 12
+  m_TagString: 6
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -745,8 +746,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a15659366c43b4da313826331483c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mark: 0
+  mark: 2
   size: 1
+  isSelected: 0
 --- !u!58 &331496633
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -949,6 +951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mark: 0
   size: 0
+  isSelected: 0
 --- !u!114 &350355893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -980,7 +983,7 @@ GameObject:
   - component: {fileID: 426419095}
   m_Layer: 9
   m_Name: mark_O_Mid (1)
-  m_TagString: 10
+  m_TagString: 5
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1095,8 +1098,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a15659366c43b4da313826331483c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mark: 0
+  mark: 2
   size: 2
+  isSelected: 0
 --- !u!58 &426419095
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1128,7 +1132,7 @@ GameObject:
   - component: {fileID: 547812613}
   m_Layer: 9
   m_Name: mark_X_Little
-  m_TagString: 5
+  m_TagString: 3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1243,8 +1247,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a15659366c43b4da313826331483c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mark: 0
+  mark: 1
   size: 1
+  isSelected: 0
 --- !u!58 &547812613
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1276,7 +1281,7 @@ GameObject:
   - component: {fileID: 564392599}
   m_Layer: 9
   m_Name: mark_O_Mid
-  m_TagString: 9
+  m_TagString: 5
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1391,8 +1396,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a15659366c43b4da313826331483c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mark: 0
+  mark: 2
   size: 2
+  isSelected: 0
 --- !u!58 &564392599
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1424,7 +1430,7 @@ GameObject:
   - component: {fileID: 596010424}
   m_Layer: 9
   m_Name: mark_O_Big (1)
-  m_TagString: 8
+  m_TagString: 4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1539,8 +1545,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a15659366c43b4da313826331483c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mark: 0
+  mark: 2
   size: 3
+  isSelected: 0
 --- !u!58 &596010424
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1674,6 +1681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mark: 0
   size: 0
+  isSelected: 0
 --- !u!114 &870308298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1705,7 +1713,7 @@ GameObject:
   - component: {fileID: 1037246349}
   m_Layer: 9
   m_Name: mark_X_Mid (1)
-  m_TagString: 4
+  m_TagString: 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1820,8 +1828,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a15659366c43b4da313826331483c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mark: 0
+  mark: 1
   size: 2
+  isSelected: 0
 --- !u!58 &1037246349
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1853,7 +1862,7 @@ GameObject:
   - component: {fileID: 1079392869}
   m_Layer: 9
   m_Name: mark_X_Mid
-  m_TagString: 3
+  m_TagString: 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1968,8 +1977,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a15659366c43b4da313826331483c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mark: 0
+  mark: 1
   size: 2
+  isSelected: 0
 --- !u!58 &1079392869
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2151,7 +2161,7 @@ GameObject:
   - component: {fileID: 1483745061}
   m_Layer: 9
   m_Name: mark_O_Big
-  m_TagString: 7
+  m_TagString: 4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2266,8 +2276,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a15659366c43b4da313826331483c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mark: 0
+  mark: 2
   size: 3
+  isSelected: 0
 --- !u!58 &1483745061
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2401,6 +2412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mark: 0
   size: 0
+  isSelected: 0
 --- !u!114 &1500334739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2534,6 +2546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mark: 0
   size: 0
+  isSelected: 0
 --- !u!114 &1569079191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2667,6 +2680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mark: 0
   size: 0
+  isSelected: 0
 --- !u!114 &1777724988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2800,6 +2814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mark: 0
   size: 0
+  isSelected: 0
 --- !u!114 &1792206625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2831,7 +2846,7 @@ GameObject:
   - component: {fileID: 1884384140}
   m_Layer: 9
   m_Name: mark_O_Little
-  m_TagString: 11
+  m_TagString: 6
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2946,8 +2961,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a15659366c43b4da313826331483c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mark: 0
+  mark: 2
   size: 1
+  isSelected: 0
 --- !u!58 &1884384140
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3048,7 +3064,7 @@ GameObject:
   - component: {fileID: 1918404815}
   m_Layer: 9
   m_Name: mark_X_Big (1)
-  m_TagString: 2
+  m_TagString: 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3163,8 +3179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a15659366c43b4da313826331483c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mark: 0
+  mark: 1
   size: 3
+  isSelected: 0
 --- !u!58 &1918404815
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3298,6 +3315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mark: 0
   size: 0
+  isSelected: 0
 --- !u!114 &1936930162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3329,7 +3347,7 @@ GameObject:
   - component: {fileID: 1946736288}
   m_Layer: 9
   m_Name: mark_X_Little (1)
-  m_TagString: 6
+  m_TagString: 3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3444,8 +3462,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a15659366c43b4da313826331483c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mark: 0
+  mark: 1
   size: 1
+  isSelected: 0
 --- !u!58 &1946736288
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3579,6 +3598,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mark: 0
   size: 0
+  isSelected: 0
 --- !u!114 &2068671729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3712,6 +3732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mark: 0
   size: 0
+  isSelected: 0
 --- !u!114 &2099571355
 MonoBehaviour:
   m_ObjectHideFlags: 0
