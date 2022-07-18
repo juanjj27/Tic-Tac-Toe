@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Box : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Box : MonoBehaviour
     public Mark mark;
     public bool isMarked;
     public Shape currentMark;
+     
 
     private GameObject xSmallPrefab;
     private SpriteRenderer spriteRenderer;
@@ -62,6 +64,7 @@ public class Box : MonoBehaviour
         {
             //mostrar en UI que debe seleccionar un tamaño
             board.canSwitchPlayer = false;
+            
             Debug.Log("Seleccione un tamaño");
         }
 

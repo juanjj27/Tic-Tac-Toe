@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Board : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class Board : MonoBehaviour
     private Camera cam;
 
     public Mark currentMark;
+    public GameObject GO1;
+    public GameObject GO2;
 
     public GameObject currentMarkSizeToPlace;
     public MarkContainer markContainer;
@@ -62,7 +65,7 @@ public class Board : MonoBehaviour
     {
         if (!box.isMarked)
         {
-            if(markContainer.currentSelection != null)
+            if (markContainer.currentSelection != null)
             {
                 //Aquí se verificaría no solo sí está marcada sino si el tamaño es mayor, menor o igual a la marca que se desea poner
                 marks[box.index] = currentMark;
@@ -70,12 +73,18 @@ public class Board : MonoBehaviour
                 //box.SetAsMarked(GetMark(), currentMark, GetColor());
                 box.SetAsMarked(GetMark(), currentMark, markContainer);
             }
+            else
+            {
+                GO1.SetActive(true);
+            }
      
 
             bool won = CheckIfWin();
             if (won)
             {
                 Debug.Log(currentMark.ToString() + " Wins.");
+                GO2.SetActive(true);
+                GO2.GetComponentInChildren<Text>().text = "Winner" + "\n" + currentMark; 
                 return;
             }
             //NO PASAR A SWITCH PLAYER SI NO SE PUDO PONER MARCA
@@ -99,7 +108,7 @@ public class Board : MonoBehaviour
     private bool AreBoxesMatched(int i, int j, int k)
     {
         Mark m = currentMark;
-        bool matched = (marks[i] == m || marks[j] == m || marks[k] == m);
+        bool matched = (marks[i] == m && marks[j] == m && marks[k] == m);
         return matched;
     }
 
